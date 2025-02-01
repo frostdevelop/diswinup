@@ -19,10 +19,12 @@ set sm=%ERRORLEVEL%
 choice /c yn /n /m "[97mAdd to desktop (y/n)>[93m"
 set dsk=%ERRORLEVEL%
 choice /c yn /n /m "[97mAdd to startup (y/n)>[93m"
+::echo %~dp0
+::echo %temp%
 set st=%ERRORLEVEL%
 echo [InternetShortcut] >> "%temp%\finsttemp.url"
-echo URL=%~dp0\%exce% >> "%temp%\finsttemp.url"
-echo IconFile=%~dp0\%icon% >> "%temp%\finsttemp.url"
+echo URL=%~dp0%exce% >> "%temp%\finsttemp.url"
+echo IconFile=%~dp0%icon% >> "%temp%\finsttemp.url"
 echo IconIndex=0 >> "%temp%\finsttemp.url"
 echo [44m[92m
 if %sm% == 2 goto chkst
